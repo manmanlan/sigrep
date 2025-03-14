@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://culb7q1naagoc"]
+[gd_scene load_steps=5 format=4 uid="uid://culb7q1naagoc"]
+
+[ext_resource type="Texture2D" uid="uid://d2074wlbymskx" path="res://Leon/minecraft-pastel.png" id="1_x7nrf"]
+[ext_resource type="PackedScene" uid="uid://cp4mkkvwtorj7" path="res://Leon/player.tscn" id="2_tl6jw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pshik"]
+texture = ExtResource("1_x7nrf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y8awx"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_pshik")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD4/wkAAAAAAAAAAAD5/wkAAAAAAAAAAAD6/wkAAAAAAAAAAAD7/wkAAAAAAAAAAAD8/wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_y8awx")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_tl6jw")]
+position = Vector2(82, 71)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
