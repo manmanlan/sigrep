@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr7gbta1i2m4b"]
+
+[ext_resource type="Script" path="res://Denny/Scenes/settings_menu.gd" id="1_mop2w"]
+
+[node name="Settings Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mop2w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35, 0.35, 0.35, 1)
+
+[node name="Volume" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -83.0
+offset_right = 88.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Master2" type="Label" parent="CanvasLayer/Volume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Master
+"
+horizontal_alignment = 1
+
+[node name="Master" type="HSlider" parent="CanvasLayer/Volume"]
+layout_mode = 2
+
+[node name="SFX2" type="Label" parent="CanvasLayer/Volume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Sound Effects
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="HSlider" parent="CanvasLayer/Volume"]
+layout_mode = 2
+
+[node name="Music2" type="Label" parent="CanvasLayer/Volume"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music" type="HSlider" parent="CanvasLayer/Volume"]
+layout_mode = 2
+
+[node name="Exit" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 117.0
+offset_right = 88.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Return To Main Menu" type="Button" parent="CanvasLayer/Exit"]
+layout_mode = 2
+text = "Return To Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/Exit/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]
