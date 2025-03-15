@@ -3,13 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://d22xadg8gjv5f" path="res://icon.svg" id="1_m8vwf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgu2l"]
-size = Vector2(110, 148.5)
+size = Vector2(109, 136)
 
-[node name="card" type="Node2D"]
+[node name="card" type="Node2D" groups=["card"]]
 
 [node name="card" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="card"]
+position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_mgu2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="card"]

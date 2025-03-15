@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbwj35fs5c1yn"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwj35fs5c1yn"]
 
 [ext_resource type="Script" path="res://Leon/card logic/card maneger.gd" id="1_cjr2t"]
-[ext_resource type="PackedScene" uid="uid://b7dhkocy5vgwd" path="res://Leon/card logic/card.tscn" id="2_m122s"]
+[ext_resource type="PackedScene" uid="uid://b7dhkocy5vgwd" path="res://Leon/card logic/cards/card_placeholder.tscn" id="2_m122s"]
 [ext_resource type="PackedScene" uid="uid://bu3i3hp6dc55t" path="res://Leon/card logic/card_slot.tscn" id="3_h2ypd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gitlm"]
 size = Vector2(163, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kgbb"]
+size = Vector2(140, 183)
 
 [node name="card maneger" type="Node2D"]
 script = ExtResource("1_cjr2t")
@@ -30,10 +33,18 @@ position = Vector2(661, 468)
 [node name="use card" type="Node2D" parent="."]
 position = Vector2(930, 116)
 
-[node name="Area2D" type="Area2D" parent="use card"]
+[node name="use_car" type="Area2D" parent="use card"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="use card/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="use card/use_car"]
 shape = SubResource("RectangleShape2D_gitlm")
 
-[connection signal="area_entered" from="use card/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="use card/Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="deck" type="Node2D" parent="."]
+position = Vector2(1022, 506)
+
+[node name="Area2D" type="Area2D" parent="deck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deck/Area2D"]
+shape = SubResource("RectangleShape2D_2kgbb")
+
+[connection signal="area_entered" from="use card/use_car" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="use card/use_car" to="." method="_on_area_2d_area_exited"]

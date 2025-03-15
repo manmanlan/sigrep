@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://j2ofxyaegpri"]
+
+[ext_resource type="Texture2D" uid="uid://cpi5ek3g27dox" path="res://Lucas/Assets/Game Cards.png" id="1_iu8if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ipig"]
+size = Vector2(172, 263)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iad3w"]
+atlas = ExtResource("1_iu8if")
+region = Rect2(288, 0, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wlqbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iad3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="card" type="Node2D" groups=["card"]]
+
+[node name="card" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card"]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_8ipig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wlqbg")

@@ -2,7 +2,6 @@ extends Node2D
 
 var card_being_dragged
 var card_slots = []
-
 var use=false
 
 
@@ -10,6 +9,7 @@ func _ready() -> void:
 	# Gather card slots into an array for easy access
 	for slot in get_tree().get_nodes_in_group("card_slots"):
 		card_slots.append(slot)
+		
 
 
 func _physics_process(delta: float) -> void:
@@ -36,9 +36,13 @@ func check_for_card():
 	parameters.collide_with_areas = true
 	parameters.collision_mask = 1
 	var result = space_state.intersect_point(parameters)
+	
 	if result.size() > 0:
-		return result[0].collider.get_parent()
+		var card = result[0].collider.get_parent()
+		if card.is_in_group("card"):  # Correctly checks if it's part of the card group
+			return card
 	return null
+
 
 func move_card_to_nearest_slot():
 	
