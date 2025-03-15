@@ -1,3 +1,0 @@
-[gd_scene format=3 uid="uid://bu3i3hp6dc55t"]
-
-[node name="card_slot" type="Node2D" groups=["card_slots"]]

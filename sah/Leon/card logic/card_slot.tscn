@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu3i3hp6dc55t"]
+
+[sub_resource type="GDScript" id="GDScript_7f1ns"]
+script/source = "extends Node2D
+
+var ocupied=false
+"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kk08x"]
+size = Vector2(10, 1)
+
+[node name="card_slot" type="Node2D" groups=["card_slots"]]
+script = SubResource("GDScript_7f1ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8.58307e-06, 5.49999)
+scale = Vector2(15.6, 157)
+texture = SubResource("PlaceholderTexture2D_kk08x")

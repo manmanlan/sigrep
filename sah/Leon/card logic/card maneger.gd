@@ -3,14 +3,18 @@ extends Node2D
 var card_being_dragged
 var card_slots = []
 
+var use=false
+
+
 func _ready() -> void:
 	# Gather card slots into an array for easy access
 	for slot in get_tree().get_nodes_in_group("card_slots"):
 		card_slots.append(slot)
-	
+
 
 func _physics_process(delta: float) -> void:
 	if card_being_dragged:
+		card_being_dragged.reparent($".", true)
 		var mouse_pos = get_global_mouse_position()
 		card_being_dragged.position = mouse_pos
 
@@ -37,12 +41,17 @@ func check_for_card():
 	return null
 
 func move_card_to_nearest_slot():
+	
+	if use:
+		card_used()
+		
+	
 	var nearest_slot = null
 	var shortest_distance = INF
 
 	for slot in card_slots:
 		# Skip occupied slots
-		if slot.get_child_count() > 0:
+		if slot.get_child_count() > 1:
 			continue
 		
 		var distance = card_being_dragged.global_position.distance_to(slot.global_position)
@@ -51,5 +60,18 @@ func move_card_to_nearest_slot():
 			nearest_slot = slot
 
 	if nearest_slot:
+		card_being_dragged.reparent(nearest_slot, true)  # True keeps its current transform
 		card_being_dragged.global_position = nearest_slot.global_position
-		nearest_slot.add_child(card_being_dragged)
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("aaaaaaa")
+	use=true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	use=false
+	print("waa")
+
+func card_used():
+	card_being_dragged.queue_free()
