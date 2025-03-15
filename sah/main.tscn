@@ -25,3 +25,4 @@ tile_set = SubResource("TileSet_y8awx")
 position = Vector2(82, 71)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
