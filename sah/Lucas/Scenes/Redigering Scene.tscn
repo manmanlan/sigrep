@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://daw44j6aphoee"]
+
+[ext_resource type="Script" path="res://Lucas/Scripts/redigering_scene.gd" id="1_j6tob"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctniw"]
+font_size = 23
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j6tob")
+
+[node name="Redigering skjerm" type="Node" parent="."]
+
+[node name="ColorRect\'s" type="Node" parent="Redigering skjerm"]
+
+[node name="ColorRect2" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.172305, 0.204391, 0.303611, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_left = 312.0
+offset_top = 108.0
+offset_right = 840.0
+offset_bottom = 349.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_left = 244.0
+offset_top = 77.0
+offset_right = 908.0
+offset_bottom = 380.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_left = 69.0
+offset_top = 471.0
+offset_right = 1083.0
+offset_bottom = 623.0
+color = Color(0.148909, 0.17356, 0.221058, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_left = 69.0
+offset_top = 444.0
+offset_right = 1083.0
+offset_bottom = 464.0
+color = Color(0.226707, 0.226707, 0.226707, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Redigering skjerm/ColorRect\'s"]
+offset_left = 39.0
+offset_top = 77.0
+offset_right = 207.0
+offset_bottom = 380.0
+color = Color(0.14902, 0.172549, 0.219608, 1)
+
+[node name="Sliders" type="Node" parent="Redigering skjerm"]
+
+[node name="HScrollBar" type="HScrollBar" parent="Redigering skjerm/Sliders"]
+texture_filter = 1
+offset_left = 84.0
+offset_top = 451.0
+offset_right = 1074.0
+offset_bottom = 459.0
+
+[node name="HScrollBar2" type="HScrollBar" parent="Redigering skjerm/Sliders"]
+texture_filter = 1
+offset_left = 954.0
+offset_top = 108.0
+offset_right = 1123.0
+offset_bottom = 126.0
+
+[node name="HScrollBar3" type="HScrollBar" parent="Redigering skjerm/Sliders"]
+texture_filter = 1
+offset_left = 954.0
+offset_top = 182.0
+offset_right = 1123.0
+offset_bottom = 200.0
+
+[node name="HScrollBar4" type="HScrollBar" parent="Redigering skjerm/Sliders"]
+texture_filter = 1
+offset_left = 954.0
+offset_top = 257.0
+offset_right = 1123.0
+offset_bottom = 275.0
+
+[node name="fjern nå ikke trenge" type="Label" parent="Redigering skjerm"]
+offset_left = 420.0
+offset_top = 203.0
+offset_right = 718.0
+offset_bottom = 257.0
+text = "klipp skal komme opp her"
+label_settings = SubResource("LabelSettings_ctniw")

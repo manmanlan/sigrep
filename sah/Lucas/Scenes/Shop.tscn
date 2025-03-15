@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d4cwfkipawcgu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect\'s" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect\'s"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.693613, 0.586474, 0.284108, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect\'s"]
+offset_left = 337.0
+offset_top = 258.0
+offset_right = 430.0
+offset_bottom = 395.0
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect\'s"]
+offset_left = 512.0
+offset_top = 258.0
+offset_right = 605.0
+offset_bottom = 395.0
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect\'s"]
+offset_left = 687.0
+offset_top = 258.0
+offset_right = 780.0
+offset_bottom = 395.0
