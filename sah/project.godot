@@ -23,6 +23,7 @@ window/stretch/mode="viewport"
 
 card_slots=""
 card=""
+deck=""
 
 [input]
 
