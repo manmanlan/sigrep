@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://culb7q1naagoc"]
+[gd_scene load_steps=11 format=4 uid="uid://culb7q1naagoc"]
 
 [ext_resource type="Texture2D" uid="uid://d2074wlbymskx" path="res://Leon/minecraft-pastel.png" id="1_x7nrf"]
 [ext_resource type="PackedScene" uid="uid://cp4mkkvwtorj7" path="res://Leon/player.tscn" id="2_tl6jw"]
+[ext_resource type="Theme" uid="uid://bb7nmsm3qnp0v" path="res://Denny/Scripts/Shaders & Themes/StartBlue.tres" id="3_1fbvs"]
+[ext_resource type="Script" path="res://Denny/Scripts/pause_menu.gd" id="3_5pp73"]
+[ext_resource type="FontFile" uid="uid://dg7y8bujjct72" path="res://Denny/Assets/Godot-Fontpack/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="4_f3l10"]
+[ext_resource type="Theme" uid="uid://qt6021uccigr" path="res://Denny/Scripts/Shaders & Themes/SettingsYellow.tres" id="5_qqdpw"]
+[ext_resource type="Theme" uid="uid://cumtffc0gtf1n" path="res://Denny/Scripts/Shaders & Themes/QuitRed.tres" id="6_swjs1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pshik"]
 texture = ExtResource("1_x7nrf")
@@ -15,6 +20,13 @@ texture = ExtResource("1_x7nrf")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pshik")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk80i"]
+bg_color = Color(0.25, 0.25, 0.25, 0.85098)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -25,3 +37,66 @@ tile_set = SubResource("TileSet_y8awx")
 position = Vector2(82, 71)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("3_5pp73")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180005, 0.180005, 0.180005, 0.803922)
+
+[node name="Panel" type="Panel" parent="PauseMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -92.0
+offset_right = 123.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lk80i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -62.0
+offset_right = 101.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("3_1fbvs")
+theme_override_fonts/font = ExtResource("4_f3l10")
+text = "Resume"
+
+[node name="Settings" type="Button" parent="PauseMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("5_qqdpw")
+theme_override_fonts/font = ExtResource("4_f3l10")
+text = "Settings"
+
+[node name="Back" type="Button" parent="PauseMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("6_swjs1")
+theme_override_fonts/font = ExtResource("4_f3l10")
+text = "Return to Main Menu"
