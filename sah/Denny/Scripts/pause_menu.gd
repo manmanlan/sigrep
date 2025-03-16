@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var pause_menu: CanvasLayer = $"."
+var settings_menu_scene = preload("res://Denny/Scenes/settings_menu_Instancia.tscn")
 
 func resume():
 	pause_menu.visible = false
@@ -21,7 +22,10 @@ func _on_resume_pressed() -> void:
 	resume()
 
 func _on_settings_pressed() -> void:
+	var settingsmenu = settings_menu_scene.instantiate()  # Create settings menu instance
+	add_child(settingsmenu)  # Add it to the current scene
 	pause_menu.visible = false  # Hide menu when opening settings (optional)
+	
 
 func _on_back_pressed() -> void:
 	get_tree().paused = false  # Ensure game is unpaused before switching scenes
@@ -29,3 +33,5 @@ func _on_back_pressed() -> void:
 
 func _process(delta: float) -> void:
 	testesc()
+	if Global.pauasos:
+		resume()

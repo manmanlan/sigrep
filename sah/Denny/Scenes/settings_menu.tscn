@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_mop2w")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_6bgl8")
@@ -34,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.88, 0.88, 0, 0.529412)
+color = Color(0.254902, 0.396078, 0.439216, 0.545098)
 
 [node name="ColorRect8" type="ColorRect" parent="CanvasLayer/ColorRect"]
 layout_mode = 1

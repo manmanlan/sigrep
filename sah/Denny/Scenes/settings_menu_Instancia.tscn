@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ulhq8xp7prp2"]
 
-[ext_resource type="Script" path="res://Denny/Scripts/settings_menu.gd" id="1_h3jg4"]
+[ext_resource type="Script" path="res://Denny/Scripts/settings_menu_instancia.gd" id="1_6d54u"]
 [ext_resource type="Shader" path="res://Denny/Scripts/Shaders & Themes/Outlineblur.gdshader" id="2_bcrvj"]
 [ext_resource type="FontFile" uid="uid://dg7y8bujjct72" path="res://Denny/Assets/Godot-Fontpack/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="3_wt2t4"]
 [ext_resource type="Script" path="res://Denny/Scripts/audio_opt.gd" id="4_ejnjc"]
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h3jg4")
+script = ExtResource("1_6d54u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,7 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.88, 0.88, 0, 0.529412)
+color = Color(0.2552, 0.39688, 0.44, 0.545098)
 
 [node name="ColorRect8" type="ColorRect" parent="CanvasLayer/ColorRect"]
 layout_mode = 1

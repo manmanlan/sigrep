@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://qt6021uccigr" path="res://Denny/Scripts/Shaders & Themes/SettingsYellow.tres" id="4_n3avw"]
 [ext_resource type="Theme" uid="uid://cumtffc0gtf1n" path="res://Denny/Scripts/Shaders & Themes/QuitRed.tres" id="5_2cafg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xghy3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33qmc"]
 bg_color = Color(0.25, 0.25, 0.25, 0.85098)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -23,9 +23,11 @@ grow_vertical = 2
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("1_00jrl")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -34,6 +36,7 @@ grow_vertical = 2
 color = Color(0.180005, 0.180005, 0.180005, 0.803922)
 
 [node name="Panel" type="Panel" parent="PauseMenu/ColorRect"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,9 +49,10 @@ offset_right = 123.0
 offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xghy3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_33qmc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -83,6 +87,6 @@ theme = ExtResource("5_2cafg")
 theme_override_fonts/font = ExtResource("3_p3rmv")
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Settings" to="PauseMenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Back" to="PauseMenu" method="_on_back_pressed"]
