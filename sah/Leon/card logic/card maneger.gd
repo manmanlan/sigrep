@@ -57,7 +57,7 @@ func move_card_to_nearest_slot():
 
 	for slot in card_slots:
 		# Skip occupied slots
-		if slot.get_child_count() > 1:
+		if slot.get_child_count() > 0:
 			continue
 
 		var distance = card_being_dragged.global_position.distance_to(slot.global_position)
@@ -86,7 +86,7 @@ func draw_card_from_deck():
 
 	for slot in card_slots:
 		# Skip occupied slots
-		if slot.get_child_count() > 1:
+		if slot.get_child_count() > 0:
 			continue
 		var distance = Vector2(0, 0).distance_to(slot.global_position)
 		if distance < shortest_distance:

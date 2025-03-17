@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbwj35fs5c1yn"]
+[gd_scene load_steps=6 format=3 uid="uid://dbwj35fs5c1yn"]
 
 [ext_resource type="Script" path="res://Leon/card logic/card maneger.gd" id="1_cjr2t"]
+[ext_resource type="Texture2D" uid="uid://bms2fktxeov21" path="res://Leon/assets/Back_of_card.png" id="2_5ycbu"]
 [ext_resource type="PackedScene" uid="uid://bu3i3hp6dc55t" path="res://Leon/card logic/card_slot.tscn" id="3_h2ypd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gitlm"]
-size = Vector2(854, 125)
+size = Vector2(705, 150.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kgbb"]
-size = Vector2(140, 183)
+size = Vector2(172, 255)
 
 [node name="card maneger" type="Node2D"]
 script = ExtResource("1_cjr2t")
-
-[node name="card_slot" parent="." instance=ExtResource("3_h2ypd")]
-position = Vector2(546, 160)
-
-[node name="card_slot2" parent="." instance=ExtResource("3_h2ypd")]
-position = Vector2(753, 165)
-
-[node name="card_slot3" parent="." instance=ExtResource("3_h2ypd")]
-position = Vector2(979, 164)
 
 [node name="use card" type="Node2D" parent="."]
 position = Vector2(651, 535)
@@ -35,7 +27,26 @@ position = Vector2(112, 501)
 [node name="deck" type="Area2D" parent="deck"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deck/deck"]
+position = Vector2(4, -21.5)
 shape = SubResource("RectangleShape2D_2kgbb")
+
+[node name="BackOfCard" type="Sprite2D" parent="deck"]
+position = Vector2(15, -34)
+texture = ExtResource("2_5ycbu")
+
+[node name="card_slots" type="Node2D" parent="."]
+
+[node name="card_slot" parent="card_slots" instance=ExtResource("3_h2ypd")]
+position = Vector2(546, 160)
+
+[node name="card_slot2" parent="card_slots" instance=ExtResource("3_h2ypd")]
+position = Vector2(753, 165)
+
+[node name="card_slot3" parent="card_slots" instance=ExtResource("3_h2ypd")]
+position = Vector2(979, 164)
+
+[node name="card_slot4" parent="card_slots" instance=ExtResource("3_h2ypd")]
+position = Vector2(327, 157)
 
 [connection signal="area_entered" from="use card/use_car" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="use card/use_car" to="." method="_on_area_2d_area_exited"]

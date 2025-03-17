@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg6mafp6m33tx"]
+
+[ext_resource type="VideoStream" path="res://cool_fight (1).ogv" id="1_a3unf"]
+[ext_resource type="Script" path="res://Leon/card logic/card maneger.gd" id="1_a7iu3"]
+[ext_resource type="Script" path="res://Leon/video_stream_player.gd" id="1_vtrh5"]
+[ext_resource type="Texture2D" uid="uid://bms2fktxeov21" path="res://Leon/assets/Back_of_card.png" id="2_y66mq"]
+[ext_resource type="PackedScene" uid="uid://bu3i3hp6dc55t" path="res://Leon/card logic/card_slot.tscn" id="3_fsd1e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctniw"]
+font_size = 23
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gitlm"]
+size = Vector2(705, 150.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kgbb"]
+size = Vector2(172, 255)
+
+[node name="fight" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [1193.0]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Redigering skjerm" type="Node" parent="Control"]
+
+[node name="ColorRect\'s" type="Node" parent="Control/Redigering skjerm"]
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Redigering skjerm/ColorRect\'s"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.172305, 0.204391, 0.303611, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Control/Redigering skjerm/ColorRect\'s"]
+offset_left = 590.0
+offset_top = 33.0
+offset_right = 1118.0
+offset_bottom = 274.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/Redigering skjerm/ColorRect\'s"]
+offset_left = 365.0
+offset_top = 471.0
+offset_right = 1083.0
+offset_bottom = 623.0
+color = Color(0.148909, 0.17356, 0.221058, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Redigering skjerm/ColorRect\'s"]
+offset_left = 365.0
+offset_top = 444.0
+offset_right = 1083.0
+offset_bottom = 464.0
+color = Color(0.226707, 0.226707, 0.226707, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Control/Redigering skjerm/ColorRect\'s"]
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 439.0
+offset_bottom = 340.0
+color = Color(0.14902, 0.172549, 0.219608, 1)
+
+[node name="Sliders" type="Node" parent="Control/Redigering skjerm"]
+
+[node name="HScrollBar" type="HScrollBar" parent="Control/Redigering skjerm/Sliders"]
+texture_filter = 1
+offset_left = 378.0
+offset_top = 451.0
+offset_right = 1074.0
+offset_bottom = 459.0
+
+[node name="fjern nå ikke trenge" type="Label" parent="Control/Redigering skjerm"]
+offset_left = 698.0
+offset_top = 128.0
+offset_right = 996.0
+offset_bottom = 182.0
+text = "klipp skal komme opp her"
+label_settings = SubResource("LabelSettings_ctniw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 564.0
+offset_top = 11.0
+offset_right = 2484.0
+offset_bottom = 1099.0
+scale = Vector2(0.3, 0.3)
+stream = ExtResource("1_a3unf")
+autoplay = true
+loop = true
+script = ExtResource("1_vtrh5")
+
+[node name="card maneger" type="Node2D" parent="."]
+top_level = true
+z_index = 2
+script = ExtResource("1_a7iu3")
+
+[node name="use card" type="Node2D" parent="card maneger"]
+position = Vector2(651, 535)
+
+[node name="use_car" type="Area2D" parent="card maneger/use card"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card maneger/use card/use_car"]
+position = Vector2(74.5, 12.75)
+shape = SubResource("RectangleShape2D_gitlm")
+
+[node name="deck" type="Node2D" parent="card maneger" groups=["deck"]]
+position = Vector2(169, 538)
+
+[node name="deck" type="Area2D" parent="card maneger/deck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card maneger/deck/deck"]
+position = Vector2(4, -21.5)
+shape = SubResource("RectangleShape2D_2kgbb")
+
+[node name="BackOfCard" type="Sprite2D" parent="card maneger/deck"]
+position = Vector2(15, -34)
+texture = ExtResource("2_y66mq")
+
+[node name="card_slots" type="Node2D" parent="card maneger"]
+position = Vector2(-228, -77)
+
+[node name="card_slot" parent="card maneger/card_slots" instance=ExtResource("3_fsd1e")]
+position = Vector2(546, 160)
+
+[node name="card_slot2" parent="card maneger/card_slots" instance=ExtResource("3_fsd1e")]
+position = Vector2(329, 321)
+
+[node name="card_slot3" parent="card maneger/card_slots" instance=ExtResource("3_fsd1e")]
+position = Vector2(549, 324)
+
+[node name="card_slot4" parent="card maneger/card_slots" instance=ExtResource("3_fsd1e")]
+position = Vector2(327, 157)
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+z_as_relative = false
+offset_left = 906.0
+offset_top = 358.0
+offset_right = 1014.0
+offset_bottom = 398.0
+
+[connection signal="area_entered" from="card maneger/use card/use_car" to="card maneger" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="card maneger/use card/use_car" to="card maneger" method="_on_area_2d_area_exited"]
+[connection signal="button_down" from="Button" to="Control/VideoStreamPlayer" method="_on_button_button_down"]
